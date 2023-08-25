@@ -1,4 +1,5 @@
-import { type } from "os"
+import { Models } from "appwrite"
+
 
 interface Board{
     columns : Map<TypeColumns,columns>
@@ -6,17 +7,17 @@ interface Board{
 }
 type TypeColumns = "todo"| "inprogress"|"done"
 
-interface columns{
-    ids : TypeColumns
+interface Column{
+    id : TypeColumns
     todos: Todo[]
 
 }
-interface Todo{
+interface Todo {
     $id : string,
     $createdAt : string,
     title : string,
       status: TypeColumns,
-      image? : Images
+      image? : string
 }
 interface Images{
     bucketId : string,

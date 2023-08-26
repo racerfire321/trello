@@ -1,3 +1,4 @@
+import Model from '@/components/Model'
 import './globals.css'
 import type { Metadata } from 'next'
 
@@ -15,7 +16,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       
-      <body className='bg-white'  >{children}</body>
+      <body className='bg-white'  >{children}
+      <Model/>
+        </body>
     </html>
   )
 }

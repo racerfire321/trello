@@ -17,6 +17,7 @@ const Header = () => {
   const[board] = useBoardState((state) => [
     state.board,
   ])
+  
   const[loading,setLoading]= useState<Boolean>(false);
   const[suggestion,setSuggestion] = useState<string>("");
   useEffect(()=>
@@ -58,7 +59,7 @@ const Header = () => {
                 <p className='flex items-center p-5 text-sm font-light px-5 shadow-xl w-fit bg-white italic max-w-3xl text-[#0055D1]'>
                 
                 
-                <FaUserCircle className='inline-block h-10 w-10 text-[#0055D1] mx-4' />GPT is sumarizing your tack for the day
+                <FaUserCircle className={`inline-block h-10 w-10 text-[#0055D1] mx-4 ${loading && "animate-spin"}`} />GPT is sumarizing your tack for the day
                </p>
                 
               </div>

@@ -19,7 +19,7 @@ interface Todo {
       status: TypeColumns,
       image? : string
 }
-interface Images{
+interface image{
     bucketId : string,
     fileId :string,
 }

@@ -4,6 +4,7 @@ import TodoCard from './TodoCard';
 import { FaPlusCircle } from 'react-icons/fa';
 import { Todo,TypeColumns } from '@/typing';
 import { useBoardState } from '@/store/BoardStore';
+import { useModalStore } from '@/store/ModalStore';
 
 type Props = {
   id: TypeColumns;
@@ -23,6 +24,9 @@ function Columns({ id, todos, index }: Props) {
   const [searchString] = useBoardState((state) => [
     state.searchString
   ])
+  const openModel = useModalStore((state)=>
+    state.openModel
+  )
  
   return (
     <Draggable draggableId={id} index={index}>
@@ -71,7 +75,8 @@ function Columns({ id, todos, index }: Props) {
     )
       })}
        {provided.placeholder}
-  <div className='flex items-end justify-end p-2'><button className='text-green-500 hover:text-green-800'><FaPlusCircle className='w-10 h-10'/></button></div>
+  <div className='flex items-end justify-end p-2'><button className='text-green-500 hover:text-green-800' onClick={openModel}>
+    <FaPlusCircle className='w-10 h-10'/></button></div>
 </div>
                
               </div>
